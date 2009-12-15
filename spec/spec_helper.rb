@@ -52,3 +52,25 @@ Spec::Runner.configure do |config|
   #
   # For more information take a look at Spec::Runner::Configuration and Spec::Runner
 end
+
+private
+
+def remove_test_songs
+  music_dir = AppConfig[:music]
+  FileUtils.rm_rf(music_dir) if File.exists?(music_dir)
+  FileUtils.mkdir_p(music_dir)
+end
+
+def create_test_songs
+  remove_test_songs
+  music_dir = AppConfig[:music]
+  (1..10).to_a.sort_by { rand }.first.times do |i|
+    create_song("test-song-#{i}.mp3")
+  end
+end
+
+def create_song(name)
+  song_name = File.join(AppConfig[:music], name)
+  system("touch #{song_name}")
+  song_name
+end
