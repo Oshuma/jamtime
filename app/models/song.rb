@@ -12,7 +12,7 @@ class Song < ActiveRecord::Base
         [ :title, :artist, :album, :genre ].each do |id3_tag|
           id3_value = tag.send(id3_tag)
           if id3_value
-            self.send("#{id3_tag}=", id3_value)
+            self.send("#{id3_tag}=", id3_value.toutf8)
           end
         end
       end
