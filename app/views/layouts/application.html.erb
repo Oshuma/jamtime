@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title><%= AppConfig[:name] %></title>
+  <%= stylesheet_link_tag 'main' %>
+  <%= javascript_include_tag 'jquery', 'application' %>
+</head>
+
+<body>
+
+  <div id="header">
+    <div id="logo">
+      <h1><%= link_to AppConfig[:name], root_path %></h1>
+      <p>It's time to fuckin' jam.</p>
+    </div>
+    <!-- end #logo -->
+
+    <div id="menu">
+      <ul>
+        <%= link_with_active('Music', root_path) %>
+        <% if logged_in? %>
+          <%= link_with_active('Profile', current_user) %>
+          <%= link_with_active('Logout', logout_path) %>
+        <% else %>
+          <%= link_with_active('Login', login_path) %>
+        <% end %>
+      </ul>
+    </div>
+    <!-- end #menu -->
+
+  </div>
+  <!-- end #header -->
+
+  <div id="page">
+    <div id="content">
+      <%= yield %>
+    </div>
+    <!-- end #content -->
+
+    <% sidebar = yield :sidebar %>
+    <% if sidebar %>
+      <div class="sidebar">
+        <div class="sidebar-content">
+          <%= sidebar %>
+        </div>
+      </div>
+    <% end %>
+    <!-- end #sidebar -->
+
+  </div>
+  <!-- end #page -->
+
+  <div id="footer">
+    <p><a href="http://oshuma.github.com/">oshuma.github.com</a></p>
+  </div>
+  <!-- end #footer -->
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+defaults: &defaults
+  name: Jam Time
+  music: /path/to/music
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
