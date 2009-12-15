@@ -36,7 +36,11 @@ describe Song do
   it 'should not recreate the database record' do
   end
 
-  describe 'ID3 tag' do
+  describe 'tags' do
+    it 'has a tag name constant' do
+      Song::TAGS.should_not be_nil
+    end
+
     it 'has a title' do
       @song = Song.find_by_path(@song_path)
       @song.title.should_not be_nil
