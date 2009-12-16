@@ -27,17 +27,19 @@ class Song < ActiveRecord::Base
     begin
       Mp3Info.open(path) do |mp3|
         id3 = mp3.tag
-        TAGS.each do |tag|
-          value = id3.send(tag)
-          if value
-            # Properly encode the tag.
-            value = value.unpack("U*").map{ |c| c.chr }.join
-            self.send("#{tag}=", value)
-          end
-        end
+        TAGS.each { |tag| write_tag(tag, id3) }
       end
     rescue => error
       Rails.logger.error "Not a music file: #{error}"
+    end
+  end
+
+  def write_tag(tag, id3)
+    value = id3.send(tag)
+    if value
+      # Properly encode the tag.
+      value = value.unpack("U*").map{ |c| c.chr }.join
+      self.send("#{tag}=", value)
     end
   end
 
