@@ -1,0 +1,9 @@
+<div class="songs">
+  <% @songs.each do |song| %>
+    <div class="song">
+      <%= image_tag('layout/icons/down_arrow.png') %>
+      <%#= link_to(File.basename(song.path), download_path(song.path)) %>
+      <%= song.inspect %>
+    </div>
+  <% end %>
+</div>

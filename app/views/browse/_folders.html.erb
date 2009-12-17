@@ -1,0 +1,9 @@
+<div class="folders">
+  <% @folders.each do |folder| %>
+    <div class="folder">
+      <%= image_tag('layout/icons/folder.png') %>
+      <% name = File.basename(folder) %>
+      <%= link_to(name, browse_path(folder), :class => 'folder-link') %>
+    </div>
+  <% end %>
+</div>
