@@ -20,7 +20,7 @@
     <div id="menu">
       <ul>
         <%= link_with_active('Music', root_path) %>
-        <% if logged_in? %>
+        <% if false #logged_in? %>
           <%= link_with_active('Profile', current_user) %>
           <%= link_with_active('Logout', logout_path) %>
         <% else %>
