@@ -3,12 +3,11 @@ class Song < ActiveRecord::Base
 
   validates_presence_of :path
 
-  before_save :update_tag
+  before_save :namespace_path, :update_tag
 
   class << self
     def find_by_path(path)
-      path = File.expand_path(path)
-      return nil unless File.exists?(path)
+      return nil unless File.exists?(path) && !File.directory?(path)
       # TODO: Handle formats other than MP3.
       return nil unless File.extname(path).downcase == '.mp3'
       find_or_create_by_path(path)
@@ -22,6 +21,12 @@ class Song < ActiveRecord::Base
   end # self
 
   private
+
+  def namespace_path
+    full_path = File.expand_path(path)
+    return true unless full_path =~ /^#{Regexp.escape(AppConfig[:music])}/
+    self.path = File.join(AppConfig[:music], path)
+  end
 
   def update_tag
     begin
