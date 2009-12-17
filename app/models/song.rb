@@ -3,7 +3,7 @@ class Song < ActiveRecord::Base
 
   validates_presence_of :path
 
-  before_save :namespace_path, :update_tag
+  before_save :ensure_in_music_path, :update_tag
 
   class << self
     def find_by_path(path)
@@ -22,7 +22,7 @@ class Song < ActiveRecord::Base
 
   private
 
-  def namespace_path
+  def ensure_in_music_path
     full_path = File.expand_path(path)
     return true unless full_path =~ /^#{Regexp.escape(AppConfig[:music])}/
     self.path = File.join(AppConfig[:music], path)
