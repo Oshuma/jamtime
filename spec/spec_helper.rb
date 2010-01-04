@@ -57,15 +57,9 @@ private
 
 def remove_test_songs
   music_dir = AppConfig[:music]
-  FileUtils.rm_rf(music_dir) if File.exists?(music_dir)
-  FileUtils.mkdir_p(music_dir)
-end
-
-def create_test_songs
-  remove_test_songs
-  music_dir = AppConfig[:music]
-  (1..10).to_a.sort_by { rand }.first.times do |i|
-    create_song("test-song-#{i}.mp3")
+  return unless File.exists?(music_dir)
+  Dir["#{music_dir}/test*.mp3"].each do |song|
+    FileUtils.rm(song) if File.exists?(song)
   end
 end
 
