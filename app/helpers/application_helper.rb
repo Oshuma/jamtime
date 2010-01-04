@@ -1,6 +1,14 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+  def admin?
+    true
+  end
+
+  def logged_in?
+    true
+  end
+
   def link_with_active(name, path, opts = {})
     if opts[:class]
       opts[:class] += ' active' if current_page?(path)
