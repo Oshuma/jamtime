@@ -1,0 +1,12 @@
+<div class="block">
+  <div class="content">
+    <h2 class="title">Edit Artist</h2>
+    <div class="inner">
+      <% form_for @artist, :url => artist_path(@artist), :html => { :class => :form } do |f| -%>
+        <%= render :partial => "form", :locals => {:f => f} %>
+      <% end -%>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

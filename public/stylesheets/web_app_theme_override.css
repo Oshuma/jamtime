@@ -13,3 +13,7 @@
 .subfolder {
   margin-left: 20px;
 }
+
+.content {
+  min-height: 100px;
+}

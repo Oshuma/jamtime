@@ -1,0 +1,8 @@
+<% if admin? %>
+  <div class="block">
+    <h3>Admin</h3>
+    <ul class="navigation">
+      <li><%= link_to('New', new_artist_path) %></li>
+    </ul>
+  </div>
+<% end %>
