@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   $('#collapse-subfolders').live('click', function() {
-    window.location.hash = null;
+    window.location.hash = '';
     $('.subfolder').hide();
     return false;
   });
