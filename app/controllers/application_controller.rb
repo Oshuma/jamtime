@@ -2,7 +2,11 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
+  # include Authentication
+  # helper_method :current_user, :current_user_session, :logged_in?, :admin?
+
   helper :all # include all helpers, all the time
+
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   layout proc { |controller| controller.request.xhr? ? nil : 'jamtime' }
