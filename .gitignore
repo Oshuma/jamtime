@@ -4,4 +4,5 @@ config/database.yml
 db/*.sqlite3
 doc/app/
 log/*.log
+spec/music/test*.mp3
 tmp/**/*
