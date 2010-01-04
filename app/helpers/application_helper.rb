@@ -1,8 +1,12 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
-  def link_with_active(name, path)
-    opts = { :class => 'active' } if current_page?(path)
+  def link_with_active(name, path, opts = {})
+    if opts[:class]
+      opts[:class] += ' active' if current_page?(path)
+    else
+      opts[:class] = 'active' if current_page?(path)
+    end
     content_tag :li, opts do
       link_to(name, path)
     end
