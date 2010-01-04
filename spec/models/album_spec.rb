@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Artist do
+describe Album do
 
   it 'requires a name' do
     lambda do
-      Factory(:artist, :name => nil)
+      Factory(:album, :name => nil)
     end.should raise_error(ActiveRecord::RecordInvalid)
   end
 
