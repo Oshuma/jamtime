@@ -8,9 +8,8 @@ Factory.define(:album) do |a|
 end
 
 Factory.define(:song) do |s|
-  s.sequence(:title)  { |i| "Title #{i}"  }
-  s.sequence(:artist) { |i| "Artist #{i}" }
-  s.sequence(:album)  { |i| "Album #{i}"  }
-  s.sequence(:genre)  { |i| "Genre #{i}"  }
+  s.artist { |song| song.association(:artist) }
+  s.album  { |song| song.association(:album)  }
+  s.sequence(:name) { |i| "Song #{i}" }
   s.sequence(:path)   { |i| create_song("test#{i}.mp3") }
 end
