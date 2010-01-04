@@ -13,6 +13,7 @@
         <%= link_to AppConfig[:name], root_path %>
         <span>It's time to fuckin' jam.</span>
       </h1>
+
       <div id="user-navigation">
         <ul class="wat-cf">
           <%# if logged_in? %>
@@ -28,34 +29,42 @@
             </li>
           <% end %>
         </ul>
-      </div>      
+      </div><%# end #user-navigation %>
+
       <div id="main-navigation">
         <ul class="wat-cf">
           <%= link_with_active('Music', root_path, :class => 'first') %>
           <%= link_with_active('Browse', browse_path) %>
         </ul>
-      </div>
-    </div>    
+      </div><%# end #main-navigation %>
+    </div><%# end #header %>
+
     <div id="wrapper" class="wat-cf">
-      <div class="flash">
-        <% flash.each do |type, message| -%>
-          <div class="message <%= type %>">
-            <p><%= message %></p>
-          </div>
-        <% end -%>
-      </div>
       <div id="main">
+        <% if messages_waiting? %>
+          <div class="flash">
+            <% flash.each do |type, message| -%>
+              <div class="message <%= type %>">
+                <p><%= message %></p>
+              </div>
+            <% end -%>
+          </div><%# end #flash %>
+        <% end %>
+
         <%= yield %>
+
         <div id="footer">
           <div class="block">
-            <p>Copyright &copy; 2009 Your Site.</p>
-          </div>      
-        </div>
-      </div>
+            <p>Fuck &copy;</p>
+          </div>
+        </div><%# end #footer %>
+      </div><%# end #main %>
+
       <div id="sidebar">
         <%= yield :sidebar %>
       </div>
-    </div>    
-  </div>
+
+    </div><%# end #wrapper %>
+  </div><%# end #container %>
 </body>
 </html>
