@@ -1,4 +1,3 @@
-# TODO: Pagination.
 class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.xml
@@ -6,7 +5,8 @@ class ArtistsController < ApplicationController
     params[:per_page] ||= 10
     @artists = Artist.paginate(:page => params[:page],
                                :per_page => params[:per_page],
-                               :order => 'name ASC')
+                               :order => 'name ASC',
+                               :include => [ :albums, :songs ])
 
     respond_to do |format|
       format.html # index.html.erb
