@@ -36,10 +36,6 @@
   right: 20px;
 }
 
-.subfolder {
-  margin-left: 20px;
-}
-
 .content {
   /* min-height: 100px; */
 }
@@ -63,6 +59,17 @@ h2.title span > a:hover {
 
 .notice ul {
   list-style-type: none;
+}
+
+
+/* Custom styles. */
+
+.folders {
+  padding: 10px;
+}
+
+.subfolder {
+  margin-left: 20px;
 }
 
 .admin-buttons {

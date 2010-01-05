@@ -1,22 +1,25 @@
 class BrowseController < ApplicationController
 
   def index
+    @folders = []
+    @songs   = []
+
     music_path = AppConfig[:music]
     if params[:path] && !params[:path].empty?
       music_path = File.join(music_path, params[:path].join('/'))
     end
 
-    @folders = []
-    @songs   = []
-
     Dir["#{music_path}/*"].each do |path|
       if File.directory?(path)
         @folders << path.gsub(/#{AppConfig[:music]}\//, '')
       else
-        # @songs << Song.find_by_path(path)
-        @songs << path
+        filetype = File.extname(path).gsub(/^\./, '').downcase
+        @songs << Song.find_by_path(path) if Song::FILETYPES.include?(filetype)
       end
     end
+
+    @folders.compact!
+    @songs.compact!
   end
 
   # TODO: Directory downloading (tarball or zip format).

@@ -1,3 +1,4 @@
+# TODO: Pagination.
 class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.xml
