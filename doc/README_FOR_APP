@@ -1,2 +1,11 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+== Jam Time
+
+=== Setup
+
+Copy and edit <tt>config/app_config.yml.example</tt> and <tt>config/database.yml.example</tt>.
+The <tt>music</tt> option should point to the root directory containing the music files.
+
+Run the database migrations and update the music database.
+
+  $ rake db:migrate
+  $ rake jamtime:music:update
