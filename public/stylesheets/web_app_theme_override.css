@@ -20,6 +20,16 @@
   text-align: center;
 }
 
+#footer a {
+  border-bottom: 1px dotted #fff;
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer a:hover {
+  border-bottom: 1px solid #fff;
+}
+
 #sidebar {
   position: fixed;
   top: 130px;

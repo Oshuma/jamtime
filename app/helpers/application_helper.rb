@@ -2,7 +2,7 @@
 module ApplicationHelper
 
   def admin?
-    true
+    logged_in? && true
   end
 
   def logged_in?
