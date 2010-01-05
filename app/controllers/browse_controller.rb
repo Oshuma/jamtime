@@ -19,4 +19,14 @@ class BrowseController < ApplicationController
     end
   end
 
+  # TODO: Directory downloading (tarball or zip format).
+  def download
+    @song = Song.find(params[:song])
+    if File.exists?(@song.path)
+      send_file(@song.path)
+    else
+      render :text => "File not found.", :status => :not_found
+    end
+  end
+
 end

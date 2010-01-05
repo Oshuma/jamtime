@@ -24,7 +24,7 @@ ActionController::Routing::Routes.draw do |map|
   # Used to browse the music directory itself.
   map.with_options :controller => 'browse' do |music|
     music.browse '/browse/*path', :action => 'index'
-    music.download '/download/*path', :action => 'download'
+    music.download '/download/:song', :action => 'download'
   end
 
   map.root :controller => 'browse', :action => 'index'
