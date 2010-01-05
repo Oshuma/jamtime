@@ -3,7 +3,10 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.xml
   def index
-    @artists = Artist.all(:order => 'name ASC')
+    params[:per_page] ||= 15
+    @artists = Artist.paginate(:page => params[:page],
+                               :per_page => params[:per_page],
+                               :order => 'name ASC')
 
     respond_to do |format|
       format.html # index.html.erb

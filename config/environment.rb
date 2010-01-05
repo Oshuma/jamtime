@@ -22,6 +22,7 @@ Rails::Initializer.run do |config|
   config.gem 'authlogic', :source => 'http://gemcutter.org'
   config.gem 'app_config', :source => 'http://gemcutter.org'
   config.gem 'ruby-mp3info', :lib => 'mp3info', :source => 'http://gemcutter.org'
+  config.gem 'will_paginate', :source => 'http://gemcutter.org'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

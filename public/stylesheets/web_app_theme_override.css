@@ -76,3 +76,9 @@ h2.title span > a:hover {
   float: right;
   margin-top: -40px;
 }
+
+.pagination > span.disabled {
+  background-color: #ddd;
+  border: 1px solid #ddd;
+  color: #888;
+}
