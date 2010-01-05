@@ -1,3 +1,14 @@
+<% content_for :sidebar do %>
+  <div class="block notice">
+    <h4>Note</h4>
+    <p>
+    This list is compiled using the music file's <a href="http://en.wikipedia.org/wiki/ID3">ID3</a> tag which may, or may not, be correct.
+    </p>
+  </div>
+<% end %>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
+
 <div class="block">
   <div class="content">
     <div class="inner">
@@ -32,5 +43,3 @@
     </div><%# end .inner %>
   </div><%# end .content %>
 </div>
-
-<% content_for :sidebar, render(:partial => 'sidebar') -%>

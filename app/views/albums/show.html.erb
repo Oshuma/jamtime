@@ -1,0 +1,29 @@
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
+
+<div class="block">
+  <div class="content">
+    <h2 class="title">
+      <%=h @album.name %>
+      <span>- <%= link_to h(@album.artist.name), @album.artist %></span>
+    </h2>
+
+    <% if admin? %>
+      <div class="inner admin-buttons">
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "Edit")} Edit", edit_album_path(@album), :class => "button" %>
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "Delete")} Delete", album_path(@album), :method => "delete", :class => "button", :confirm => "Are you sure?" %>
+      </div>
+    <% end %>
+
+    <div class="inner">
+      <ul class="list">
+        <% @album.songs.each do |song| %>
+          <li>
+            <%= link_to(image_tag('layout/icons/down_arrow.png'), download_path(CGI.escape(song.path))) %>
+            <%= h song.title %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div><%# end .content %>
+</div><%# end .block %>

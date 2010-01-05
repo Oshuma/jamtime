@@ -6,15 +6,15 @@
 
     <% if admin? %>
       <div class="inner admin-buttons">
-        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "Edit")} Edit", edit_artist_path(@artist), :class => "button" %> 
-        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "Delete")} Delete", artist_path(@artist), :method => "delete", :class => "button", :confirm => "Are you sure?" %>       
+        <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "Edit")} Edit", edit_artist_path(@artist), :class => "button" %>
+        <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "Delete")} Delete", artist_path(@artist), :method => "delete", :class => "button", :confirm => "Are you sure?" %>
       </div>
     <% end %>
 
     <div class="inner">
-      <ul>
+      <ul class="list">
         <% @artist.albums.each do |album| %>
-          <li><%=h album.name %></li>
+          <li><%= link_to h(album.name), artist_album_path(@artist, album) %></li>
         <% end %>
       </ul>
     </div>

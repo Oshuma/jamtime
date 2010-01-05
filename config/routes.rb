@@ -11,6 +11,10 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   map.resources :genres
+  map.resources :artists
+  map.resources :albums
+
+  # Namespaced URLs.
   map.resources :artists do |artist|
     artist.resources :albums do |album|
       album.resources :songs

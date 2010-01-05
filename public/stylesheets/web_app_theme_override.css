@@ -34,8 +34,25 @@
   /* min-height: 100px; */
 }
 
+h2.title span {
+  font-size: 0.60em;
+}
+
+h2.title span > a {
+  border-bottom: 1px dotted #262626;
+  text-decoration: none;
+}
+
+h2.title span > a:hover {
+  border-bottom: 1px solid #262626;
+}
+
 .table {
   margin-top: 10px;
+}
+
+.notice ul {
+  list-style-type: none;
 }
 
 .admin-buttons {
