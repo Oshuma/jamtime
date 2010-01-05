@@ -10,6 +10,6 @@ end
 Factory.define(:song) do |s|
   s.artist { |song| song.association(:artist) }
   s.album  { |song| song.association(:album)  }
-  s.sequence(:name) { |i| "Song #{i}" }
+  s.sequence(:title) { |i| "Song #{i}" }
   s.sequence(:path)   { |i| create_song("test#{i}.mp3") }
 end

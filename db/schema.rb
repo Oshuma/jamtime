@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20100104185127) do
   create_table "songs", :force => true do |t|
     t.integer  "artist_id"
     t.integer  "album_id"
-    t.string   "name"
+    t.string   "title"
     t.string   "path"
     t.datetime "created_at"
     t.datetime "updated_at"

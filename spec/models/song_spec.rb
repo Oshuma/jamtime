@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe Song do
 
-  it 'requires a name' do
+  it 'requires a title' do
     lambda do
-      Factory(:song, :name => nil)
+      Factory(:song, :title => nil)
     end.should raise_error(ActiveRecord::RecordInvalid)
   end
 
