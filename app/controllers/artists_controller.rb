@@ -3,7 +3,7 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.xml
   def index
-    params[:per_page] ||= 15
+    params[:per_page] ||= 10
     @artists = Artist.paginate(:page => params[:page],
                                :per_page => params[:per_page],
                                :order => 'name ASC')
