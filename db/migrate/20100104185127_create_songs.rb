@@ -8,6 +8,8 @@ class CreateSongs < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :songs, :artist_id
+    add_index :songs, :album_id
   end
 
   def self.down
