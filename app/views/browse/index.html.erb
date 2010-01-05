@@ -1,16 +1,20 @@
-<% unless request.xhr? %>
-  <% content_for(:sidebar) do %>
-    <h2>Browse The Music</h2>
-    <p>
-      <a href="#collapse" id="collapse-subfolders">Collapse Folders</a>
-    </p>
-  <% end %>
+<% content_for(:sidebar) do %>
+  <div class="block">
+    <h3>Browse The Music</h3>
+    <ul class="navigation">
+      <li><a href="#collapse" id="collapse-subfolders">Collapse Folders</a></li>
+    </ul>
+  </div>
 <% end %>
 
-<% unless @songs.empty? %>
-  <%= render :partial => 'songs' %>
-<% end %>
+<div class="block">
+  <div class="content">
+    <% unless @songs.empty? %>
+      <%= render :partial => 'songs' %>
+    <% end %>
 
-<% unless @folders.empty? %>
-  <%= render :partial => 'folders' %>
-<% end %>
+    <% unless @folders.empty? %>
+      <%= render :partial => 'folders' %>
+    <% end %>
+  </div><%# end .content %>
+</div><%# end .block %>

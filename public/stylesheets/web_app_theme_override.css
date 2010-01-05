@@ -1,13 +1,29 @@
 /* Override here any style definide by web-app-theme */
 
+#header {
+  position: fixed;
+  width: 99%;
+  z-index: 1000;
+}
+
 #header h1 > span {
   color: #fff;
   display: block;
   font-size: 0.5em;
 }
 
+#main {
+  margin-top: 110px;
+}
+
 #footer {
   text-align: center;
+}
+
+#sidebar {
+  position: fixed;
+  top: 130px;
+  right: 20px;
 }
 
 .subfolder {
@@ -15,5 +31,14 @@
 }
 
 .content {
-  min-height: 100px;
+  /* min-height: 100px; */
+}
+
+.table {
+  margin-top: 10px;
+}
+
+.admin-buttons {
+  float: right;
+  margin-top: -40px;
 }
