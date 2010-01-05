@@ -1,0 +1,6 @@
+<div id="main-navigation">
+  <ul class="wat-cf">
+    <%= link_with_active('Browse', root_path, :class => 'first') %>
+    <li class="<%= controller.controller_path == 'artists' ? 'active' : '' %>"><a href="<%= artists_path %>">Artists</a></li>
+  </ul>
+</div><%# end #main-navigation %>

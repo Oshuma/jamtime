@@ -1,0 +1,7 @@
+<div class="block">
+  <h3>Stats</h3>
+  <ul class="navigation">
+    <li><%= link_to("Artists: #{Artist.count}", artists_path) %></li>
+    <li><%= link_to("Albums: #{Album.count}", '#') %></li>
+    <li><%= link_to("Songs: #{Song.count}", '#') %></li>
+</div>

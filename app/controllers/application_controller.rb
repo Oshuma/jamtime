@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
   layout proc { |controller| controller.request.xhr? ? nil : 'jamtime' }
 
-  # Scrub sensitive parameters from your log
-  # filter_parameter_logging :password
+  if Rails.env == 'production'
+    filter_parameter_logging :password, :password_confirmation
+  end
 end

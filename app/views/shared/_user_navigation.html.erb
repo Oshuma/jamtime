@@ -1,0 +1,15 @@
+<div id="user-navigation">
+  <ul class="wat-cf">
+    <% if logged_in? %>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Settings</a></li>
+      <li>
+        <%= link_to('Logout', logout_path, :class => 'logout') %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to('Login', login_path, :class => 'login') %>
+      </li>
+    <% end %>
+  </ul>
+</div><%# end #user-navigation %>
