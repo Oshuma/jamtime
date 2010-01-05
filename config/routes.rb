@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.signup '/signup', :controller => 'users', :action => 'new'
   map.with_options :controller => 'user_sessions' do |auth|
     auth.login '/login', :action => 'new'
     auth.logout '/logout', :action => 'destroy'

@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = 'Login successful.'
-      redirect_back_or_default root_path
+      continue_or_redirect_to root_path
     else
       flash[:error] = 'Incorrect login or password.'
       redirect_to login_path
@@ -18,7 +18,7 @@ class UserSessionsController < ApplicationController
   def destroy
     current_user_session.destroy
     flash[:notice] = 'Logout successful.'
-    redirect_back_or_default root_path
+    continue_or_redirect_to root_path
   end
 
 end

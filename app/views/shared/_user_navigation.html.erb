@@ -7,9 +7,8 @@
         <%= link_to('Logout', logout_path, :class => 'logout') %>
       </li>
     <% else %>
-      <li>
-        <%= link_to('Login', login_path, :class => 'login') %>
-      </li>
+      <li><%= link_to('Login', login_path, :class => 'login') %></li>
+      <li><%= link_to('Sign Up', signup_path) %></li>
     <% end %>
   </ul>
 </div><%# end #user-navigation %>

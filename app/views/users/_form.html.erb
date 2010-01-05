@@ -1,0 +1,25 @@
+<%= f.error_messages %>
+
+<div class="group">
+  <%= f.label :login, 'Login', :class => 'label' %>
+  <%= f.text_field :login, :class => 'text_field' %>
+  <span class="description">* Required</span>
+</div>
+
+<div class="group">
+  <%= f.label :email, 'Email', :class => 'label' %>
+  <%= f.text_field :email, :class => 'text_field' %>
+  <span class="description">Any valid email address.</span>
+</div>
+
+<div class="group">
+  <%= f.label :password, 'Password', :class => 'label' %>
+  <%= f.password_field :password, :class => 'text_field' %>
+  <span class="description">* Required</span>
+</div>
+
+<div class="group">
+  <%= f.label :password_confirmation, 'Password Confirmation', :class => 'label' %>
+  <%= f.password_field :password_confirmation, :class => 'text_field' %>
+  <span class="description">One more time.</span>
+</div>

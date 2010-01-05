@@ -1,0 +1,57 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", users_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_user_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", user_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+      
+        <p>
+          <b><%= t("activerecord.attributes.user.login", :default => t("activerecord.labels.login", :default => "Login")) %>:</b>
+          <%= @user.login %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.email", :default => t("activerecord.labels.email", :default => "Email")) %>:</b>
+          <%= @user.email %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.crypted_password", :default => t("activerecord.labels.crypted_password", :default => "Crypted password")) %>:</b>
+          <%= @user.crypted_password %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.password_salt", :default => t("activerecord.labels.password_salt", :default => "Password salt")) %>:</b>
+          <%= @user.password_salt %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.persistence_token", :default => t("activerecord.labels.persistence_token", :default => "Persistence token")) %>:</b>
+          <%= @user.persistence_token %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.single_access_token", :default => t("activerecord.labels.single_access_token", :default => "Single access token")) %>:</b>
+          <%= @user.single_access_token %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.perishable_token", :default => t("activerecord.labels.perishable_token", :default => "Perishable token")) %>:</b>
+          <%= @user.perishable_token %>
+        </p>
+
+        <p>
+          <b><%= t("activerecord.attributes.user.admin", :default => t("activerecord.labels.admin", :default => "Admin")) %>:</b>
+          <%= @user.admin %>
+        </p>
+      <%= link_to "#{image_tag("web-app-theme/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}")} #{t("web-app-theme.edit", :default=> "Edit")}", edit_user_path(@user), :class => "button" %> 
+      <%= link_to "#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}")} #{t("web-app-theme.delete", :default => "Delete")}", user_path(@user), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>       
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'sidebar') -%>

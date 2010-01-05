@@ -1,0 +1,20 @@
+<% content_for :sidebar, render(:partial => 'sidebar') -%>
+
+<div id="box">
+  <div class="block" id="block-signup">
+    <h2>Sign Up</h2>
+    <div class="content">
+      <div>&nbsp;</div>
+      <% form_for :user, :url => users_path, :html => { :class => 'form' } do |f| %>
+        <%= render :partial => "form", :locals => {:f => f} %>
+
+        <div class="group wat-cf navform">
+          <button class="button" type="submit">
+            <%= image_tag('web-app-theme/tick.png', :alt => 'Sign Up') %>
+            Sign Up
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
