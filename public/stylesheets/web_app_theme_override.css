@@ -36,6 +36,10 @@
   right: 20px;
 }
 
+#box {
+  margin-top: 0;
+}
+
 .content {
   /* min-height: 100px; */
 }

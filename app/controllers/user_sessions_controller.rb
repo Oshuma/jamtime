@@ -10,7 +10,8 @@ class UserSessionsController < ApplicationController
       flash[:notice] = 'Login successful.'
       redirect_back_or_default root_path
     else
-      render :action => :new
+      flash[:error] = 'Incorrect login or password.'
+      redirect_to login_path
     end
   end
 
