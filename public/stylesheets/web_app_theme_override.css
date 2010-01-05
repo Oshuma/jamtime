@@ -82,3 +82,9 @@ h2.title span > a:hover {
   border: 1px solid #ddd;
   color: #888;
 }
+
+.pagination > span.gap {
+  background-color: #ddd;
+  border: 1px solid #ddd;
+  color: #888;
+}
