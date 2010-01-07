@@ -1,5 +1,6 @@
 class BrowseController < ApplicationController
 
+  # FIXME: Paths with [ or ] are fucked.
   def index
     @folders = []
     @songs   = []

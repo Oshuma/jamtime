@@ -17,7 +17,8 @@ class ArtistsController < ApplicationController
   # GET /artists/1
   # GET /artists/1.xml
   def show
-    @artist = Artist.find(params[:id], :include => :albums)
+    @artist = Artist.find(params[:id], :include => [ :albums, :songs ])
+    @songs = @artist.songs.map { |song| song unless @artist.albums.include?(song.album) }.compact
 
     respond_to do |format|
       format.html # show.html.erb

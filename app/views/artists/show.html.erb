@@ -16,6 +16,18 @@
 
     <div class="inner">
       <ul class="list">
+        <% @songs.each do |song| %>
+          <div class="song">
+            <%= link_to(image_tag('layout/icons/add.png'), '#') %>
+            <%= link_to(image_tag('layout/icons/down_arrow.png'), download_path(song)) %>
+            <abbr title="<%= song.path %>"><%= h(song.title) %></abbr>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="inner">
+      <ul class="list">
         <% @artist.albums.each do |album| %>
           <li><%= link_to h(album.name), artist_album_path(@artist, album) %></li>
         <% end %>
